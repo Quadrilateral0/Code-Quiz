@@ -24,6 +24,9 @@ var quizContent = [
     }
 ]
 
+//Prevents a question from displaying prior to pressing the start button
+var quizIndex = -1;
+
 //Creating the start button
 var startButton = document.getElementById("start-button");
 startButton.addEventListener("click", function () {
@@ -46,7 +49,42 @@ startButton.addEventListener("click", function () {
 
 //Function to display quiz questions one at a time
 function quizBuilder() {
-    //Stores question from array to display
-    var display = [];
-}
+    
+    //Displays questions from array on page one at a time
+    document.body.innerHTML = '';
+    ++quizIndex;
+        document.documentElement.innerHTML = quizContent[quizIndex].question + "<br><br/>";
+        for (var i=0; i<quizContent[quizIndex].answers.length; i++) {
+            document.documentElement.innerHTML = quizContent[quizIndex].answers + "<br><br/>";
+            }
+
+            //Creates a button to go to next question if more questions in the array remain
+            if (quizIndex < (quizContent.length - 1)) {
+                var nextButton = document.createElement("input");
+                nextButton.type = "button";
+                nextButton.value = "Next question";
+                nextButton.addEventListener("click", quizBuilder);
+                document.body.appendChild(nextButton);
+               };
+
+            //Creates a button to go to the final scores on each question displayed
+            if (quizContent.length - 1) {
+                var scoresButton = document.createElement("input");
+                scoresButton.type = "button",
+                scoresButton.value = "See scores";
+                scoresButton.addEventListener("click", scoreBuilder);
+                document.body.appendChild(scoresButton);
+            }
+
+};
+
+//Function to display the final scores
+function scoreBuilder() {
+
+};
+
+//Creating the scores button 
+var scoresButton = document.getElementById("scores-button");
+startButton.addEventListener("click", scoreBuilder);
+
 
