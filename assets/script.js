@@ -21,6 +21,14 @@ var quizContent = [
         c:"X",
     },
     correctAnswer: "b"
+    },
+    {question:"JavaScript was invented in what year?",
+    answers: {
+        a:"X",
+        b:"1995",
+        c:"X",
+    },
+    correctAnswer: "b"
     }
 ]
 
@@ -50,14 +58,14 @@ startButton.addEventListener("click", function () {
 //Function to display quiz questions one at a time
 function quizBuilder() {
     
-    //Displays questions from array on page one at a time
-    document.body.innerHTML = '';
+    //Displays questions and answers from array on page one at a time
     ++quizIndex;
-        document.documentElement.innerHTML = quizContent[quizIndex].question + "<br><br/>";
+        document.body.innerHTML = quizContent[quizIndex].question + "<br><br/>";
         for (var i=0; i<quizContent[quizIndex].answers.length; i++) {
-            document.documentElement.innerHTML = quizContent[quizIndex].answers + "<br><br/>";
+            document.getElementById("quiz-container").innerHTML = "TEST!";
+            //document.body.innerHTML = ("<input type='radio' id='quiz-content' name='answers'>" + quizContent[quizIndex].answers + "<br><br/>");
             }
-
+            
             //Creates a button to go to next question if more questions in the array remain
             if (quizIndex < (quizContent.length - 1)) {
                 var nextButton = document.createElement("input");
