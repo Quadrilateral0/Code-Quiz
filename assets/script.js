@@ -56,14 +56,9 @@ function quizBuilder() {
     //Displays questions and answers from array on the page one at a time
     ++quizIndex;
 
-        //document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
-        // for (var i=0; i<quizContent[quizIndex].answers.length; i++) {
-        //    document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers[i] + "</label><br><br>");
-        //    };
-
     for (var i=0; i<quizContent[quizIndex].question.length; i++) {
         document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
-        quizContent[quizIndex].answers.forEach (element => "<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + element + "</label><br><br>")    
+        document.getElementById("quiz-answers").innerHTML = quizContent[quizIndex].answers.forEach (element => "<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + element + "</label><br><br>")    
     }; 
             
     //If more questions in the array remain, provide a button to go to the next question
