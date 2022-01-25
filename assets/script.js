@@ -1,5 +1,4 @@
 
-
 //Defining what number to start my countdown
 var countText = document.getElementById("count-text");
 var count = 60;
@@ -36,13 +35,13 @@ var startButton = document.getElementById("start-button");
 startButton.addEventListener("click", function () {
 
     //Starting countdown timer on button press
-    interval = setInterval(function() {
+    var interval = setInterval(function() {
         count-=1;
         countText.textContent = count;
   
     //Interval function ends when count equals zero
     if (count === 0){
-        clearInterval();
+        clearInterval(interval);
         alert("Game Over!");
     }
  }, 1000);
@@ -64,17 +63,18 @@ function quizBuilder() {
 
     for (var i=0; i<quizContent[quizIndex].question.length; i++) {
         document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
-        document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers + "</label><br><br>");        
+        quizContent[quizIndex].answers.forEach (element => "<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + element + "</label><br><br>")    
     }; 
             
-            //If more questions in the array remain, provide a button to go to the next question
-            if (quizIndex < (quizContent.length - 1)) {
-                nButton();
-            }
-                //Otherise, provide a finish button to score the quiz
-                else {
-                    fButton();
-                };    
+    //If more questions in the array remain, provide a button to go to the next question
+    if (quizIndex < (quizContent.length - 1)) {
+        nButton();
+    }
+                
+    //Otherise, provide a finish button to score the quiz
+        else {
+            fButton();
+        };    
 };
 
 //Creates a button to go to next question if more questions in the array remain
@@ -95,6 +95,13 @@ function fButton() {
     document.getElementById("quiz-answers").appendChild(finishButton);
 };
 
+//Creates a reset button to refresh the quiz and start over
+var resetButton = document.getElementById("reset-button");
+function rButton() {
+    rButton = location.reload();
+}
+resetButton.addEventListener("click", rButton, false);
+
 
 //Function to score current quiz
 function finishBuilder() {
@@ -106,8 +113,8 @@ function scoreBuilder() {
     
 };
 
-//Creating the scores button 
+//Creates a button to access final scores
 var scoresButton = document.getElementById("scores-button");
-startButton.addEventListener("click", scoreBuilder);
+scoresButton.addEventListener("click", scoreBuilder);
 
 
