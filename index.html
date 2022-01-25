@@ -7,27 +7,33 @@
     <link rel="stylesheet" type="text/css" href="assets/reset.css" />
     <link rel="stylesheet" type="text/css" href="assets/style.css" />
   </head>
+  
   <body>
     <header>
-        <div>
-            <h1>Coding Quiz</h1>
-        </div>
-        <div>
-            <h3 class="count-header">
-                 <div id="count-text">60</div> seconds remaining
-            </h3>
-        </div>
-        <div>
-            <button id="scores-button">See Scores</button>
+        <h1>Coding Quiz</h1> 
+        <div class="headerbuttons">
+            <div>
+                <button id="scores-button">See Scores</button>
+            </div>
+            <div>  
+                <h2 class="count-header">
+                    <p><span id="count-text">60</span> SECONDS REMAINING </p>
+                </h2>
+            </div>
+            <div>
+                <button id="reset-button">Start Over</button>
+            </div>
         </div>
     </header>
 
     <main>
-        <section>
-            <div id="quiz-container">
-                <button id="start-button">Start</button>
-            </div>
-            <div id="quiz-answers"></div>    
+        <section id="quiz">
+            <div>
+                <div id="quiz-container">
+                    <button id="start-button">Start</button>
+                </div>
+                <div id="quiz-answers"></div> 
+            </div>   
         </section>
     </main>
 

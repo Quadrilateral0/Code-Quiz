@@ -1,33 +1,50 @@
-/*
+
 :root {
-    --moon: rgb(75, 76, 90);
-    --peach: rgb(74, 143, 72);
-    --coal: rgb(7, 14, 8);
+    --moon: rgb(139, 140, 158);
+    --moss: rgb(74, 143, 72);
+    --coal: rgba(7, 14, 8, 0.774);
 }
 
 * {
-    box-sizing: border-box;
     scroll-behavior: smooth;
   }
 
-  
+header {
+    padding: 20px;
+}
+ 
 body {
-    background-color: var(--coal);
+    background-color: var(--moon);
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    padding-top: 30px;
 }
 
-
-h2 {
+h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 20px;
+    padding-bottom: 10px;
     font-size: 40px;
-    color: var(--peach);
+    color: var(--coal);
+    text-align: center;
 }
 
 button {
     padding: 1% 1%;
     color: whitesmoke;
-    background-color: var(--moon);
+    background-color: var(--coal);
     border: whitesmoke;
-    outline: none;
     cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+}
+main {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.headerbuttons {
+    position: relative;
+    padding: 5px;
+    border: 3px solid black;
 }

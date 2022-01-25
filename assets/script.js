@@ -67,24 +67,34 @@ function quizBuilder() {
         document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers + "</label><br><br>");        
     }; 
             
-            //Creates a button to go to next question if more questions in the array remain
+            //If more questions in the array remain, provide a button to go to the next question
             if (quizIndex < (quizContent.length - 1)) {
-                var nextButton = document.createElement("input");
-                nextButton.type = "button";
-                nextButton.value = "Next Question";
-                nextButton.addEventListener("click", quizBuilder);
-                document.getElementById("quiz-answers").appendChild(nextButton);
-               };
-            
-            //Creates a finish button to submit the final score
-            //if () {
-            //    var finishButton = document.createElement("submit");
-            //    finishButton.type = "button";
-            //    finishButton.value = "Finish";
-            //    finishButton.addEventListener("click", finishBuilder);
-            //    document.getElementById("quiz-answers").appendChild(finishButton);
-            //};
+                nButton();
+            }
+                //Otherise, provide a finish button to score the quiz
+                else {
+                    fButton();
+                };    
 };
+
+//Creates a button to go to next question if more questions in the array remain
+function nButton() {
+    var nextButton = document.createElement("input");
+    nextButton.type = "button";
+    nextButton.value = "Next Question";
+    nextButton.addEventListener("click", quizBuilder);
+    document.getElementById("quiz-answers").appendChild(nextButton);
+};
+
+//Creates a finish button to submit the final score
+function fButton() {
+    var finishButton = document.createElement("submit");
+    finishButton.type = "button";
+    finishButton.value = "Finish";
+    finishButton.addEventListener("click", finishBuilder);
+    document.getElementById("quiz-answers").appendChild(finishButton);
+};
+
 
 //Function to score current quiz
 function finishBuilder() {
