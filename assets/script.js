@@ -6,29 +6,25 @@ var count = 60;
 
 //Defining quiz questions in an array
 var quizContent = [
-    {question:"JavaScript was invented by:",
-    answers: {
-        a:"X",
-        b:"X",
-        c:"Brendan Eich",
+    {question: "JavaScript was invented by:",
+    answers: ["Tim Cook", "Satya Nadella", "Brendan Eich"],
+    correctAnswer: "Brendan Eich"
     },
-    correctAnswer: "c"
+    {question: "JavaScript was invented in what year?",
+    answers: ["2001", "1995", "1998"],
+    correctAnswer: "1995"
     },
-    {question:"JavaScript was invented in what year?",
-    answers: {
-        a:"X",
-        b:"1995",
-        c:"X",
+    {question: "In JavaScript, which of the following is not a type of Number?",
+    answers: ["NaN", "10", "Null"],
+    correctAnswer: "Null"
     },
-    correctAnswer: "b"
+    {question: "JavaScript was originally developed under what name?",
+    answers: ["Mocha", "Coffee", "Sundae"],
+    correctAnswer: "Mocha"
     },
-    {question:"JavaScript was invented in what year?",
-    answers: {
-        a:"X",
-        b:"1995",
-        c:"X",
-    },
-    correctAnswer: "b"
+    {question: "JavaScript and Java refer to the same programming language.",
+    answers: ["True", "False"],
+    correctAnswer: "False"
     }
 ]
 
@@ -46,7 +42,7 @@ startButton.addEventListener("click", function () {
   
     //Interval function ends when count equals zero
     if (count === 0){
-        clearInterval(interval);
+        clearInterval();
         alert("Game Over!");
     }
  }, 1000);
@@ -55,16 +51,15 @@ startButton.addEventListener("click", function () {
     quizBuilder();
 });
 
-//Function to display quiz questions one at a time
+//Function to display quiz
 function quizBuilder() {
     
-    //Displays questions and answers from array on page one at a time
+    //Displays questions and answers from array on the page one at a time
     ++quizIndex;
-        document.body.innerHTML = quizContent[quizIndex].question + "<br><br/>";
+        document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
         for (var i=0; i<quizContent[quizIndex].answers.length; i++) {
-            document.getElementById("quiz-container").innerHTML = "TEST!";
-            //document.body.innerHTML = ("<input type='radio' id='quiz-content' name='answers'>" + quizContent[quizIndex].answers + "<br><br/>");
-            }
+            document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers[i] + "</label><br><br>");
+            };
             
             //Creates a button to go to next question if more questions in the array remain
             if (quizIndex < (quizContent.length - 1)) {
@@ -72,19 +67,10 @@ function quizBuilder() {
                 nextButton.type = "button";
                 nextButton.value = "Next question";
                 nextButton.addEventListener("click", quizBuilder);
-                document.body.appendChild(nextButton);
+                document.getElementById("quiz-answers").appendChild(nextButton);
                };
-
-            //Creates a button to go to the final scores on each question displayed
-            if (quizContent.length - 1) {
-                var scoresButton = document.createElement("input");
-                scoresButton.type = "button",
-                scoresButton.value = "See scores";
-                scoresButton.addEventListener("click", scoreBuilder);
-                document.body.appendChild(scoresButton);
-            }
-
 };
+
 
 //Function to display the final scores
 function scoreBuilder() {
