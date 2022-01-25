@@ -26,7 +26,7 @@ var quizContent = [
     answers: ["True", "False"],
     correctAnswer: "False"
     }
-]
+];
 
 //Prevents a question from displaying prior to pressing the start button
 var quizIndex = -1;
@@ -56,25 +56,44 @@ function quizBuilder() {
     
     //Displays questions and answers from array on the page one at a time
     ++quizIndex;
+
+        //document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
+        // for (var i=0; i<quizContent[quizIndex].answers.length; i++) {
+        //    document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers[i] + "</label><br><br>");
+        //    };
+
+    for (var i=0; i<quizContent[quizIndex].question.length; i++) {
         document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
-        for (var i=0; i<quizContent[quizIndex].answers.length; i++) {
-            document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers[i] + "</label><br><br>");
-            };
+        document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers + "</label><br><br>");        
+    }; 
             
             //Creates a button to go to next question if more questions in the array remain
             if (quizIndex < (quizContent.length - 1)) {
                 var nextButton = document.createElement("input");
                 nextButton.type = "button";
-                nextButton.value = "Next question";
+                nextButton.value = "Next Question";
                 nextButton.addEventListener("click", quizBuilder);
                 document.getElementById("quiz-answers").appendChild(nextButton);
                };
+            
+            //Creates a finish button to submit the final score
+            //if () {
+            //    var finishButton = document.createElement("submit");
+            //    finishButton.type = "button";
+            //    finishButton.value = "Finish";
+            //    finishButton.addEventListener("click", finishBuilder);
+            //    document.getElementById("quiz-answers").appendChild(finishButton);
+            //};
 };
 
+//Function to score current quiz
+function finishBuilder() {
+
+};
 
 //Function to display the final scores
 function scoreBuilder() {
-
+    
 };
 
 //Creating the scores button 
