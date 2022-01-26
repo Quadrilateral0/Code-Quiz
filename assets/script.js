@@ -1,7 +1,7 @@
 
 //Defining what number to start my countdown
 var countText = document.getElementById("count-text");
-var count = 60;
+var count = [60];
 
 //Defining quiz questions in an array
 var quizContent = [
@@ -70,9 +70,14 @@ function quizBuilder() {
     if (quizIndex < (quizContent.length - 1)) {
         nButton();
     }    
-    //Otherise, provide a finish button to submit the final score
-    else {
-        fButton();
+        //Otherise, provide a finish button to submit the final score
+        else {
+            fButton();
+    };
+
+    //Scoring
+    if (quizContent.correctAnswers != quizContent.answers.checked){
+        count-=10;
     };
 };
 
@@ -83,6 +88,7 @@ function nButton() {
     nextButton.value = "Next Question";
     nextButton.addEventListener("click", quizBuilder);
     document.getElementById("quiz-answers").appendChild(nextButton);
+
 };
 
 //Creates a button to submit the final score
@@ -96,6 +102,7 @@ function fButton() {
 
 //Function to store time in local storage upon clicking the finish button
 function finishBuilder() {
+
     //Stop the timer
     clearInterval(interval);
 
@@ -113,6 +120,7 @@ function finishBuilder() {
 
     document.getElementById("quiz-container").innerHTML = "Would you like to save your score?<br><br>";
     
+    //Creates button to initiate form requesting initials
     sButton();
     function sButton() {
         var saveButton = document.createElement("input");
@@ -132,14 +140,15 @@ resetButton.addEventListener("click", rButton, false);
 
 //Function to display the final scores and initials
 function scoreBuilder() {
-//    var user = localStorage.getItem("initials");
-//    var result = localStorage.getItem("score");
-//    localStorage.setItem("initials", user);
-//    localStorage.setItem("score", result);
+    var initials = window.prompt("What are your initials?","ABC");
+    if (window.prompt = true) {
+        location.replace("index2.html");
+    }
 };
 
-//Creates a button to access final scores
-var scoresButton = document.getElementById("scores-button");
-scoresButton.addEventListener("click", scoreBuilder);
+//Save initials to local storage
+//var initialsInput = document.querySelector("initials");
+//var initials = initialsInput.value.trim();
+//localStorage.setItem("initials", initials);
+//initialsInput.textContent = initials;
 
-//Creates a form to enter player initials

@@ -13,6 +13,7 @@ For this project, I created a quiz application. This application demonstrates my
 Visit my [Code Quiz here](https://quadrilateral0.github.io/Code-Quiz/). The following image shows the web application's appearance and functionality:
 
 ![Screenshots of Completed Website](assets/images/Screenshot-A.png)
+![Screenshots of Completed Website](assets/images/Screenshot-C.png)
 ![Screenshots of Completed Website](assets/images/Screenshot-B.png)
 
 ## User Story
