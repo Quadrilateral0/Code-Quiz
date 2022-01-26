@@ -74,11 +74,6 @@ function quizBuilder() {
         else {
             fButton();
     };
-
-    //Scoring
-    if (quizContent.correctAnswers != quizContent.answers.checked){
-        count-=10;
-    };
 };
 
 //Creates a button to go to next question
@@ -89,6 +84,11 @@ function nButton() {
     nextButton.addEventListener("click", quizBuilder);
     document.getElementById("quiz-answers").appendChild(nextButton);
 
+    //Scoring
+    var checked = document.getElementById("quiz-answers").checked;
+    if (quizContent[correctAnswer] != checked) {
+        count-=10;
+    };
 };
 
 //Creates a button to submit the final score
