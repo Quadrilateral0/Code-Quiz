@@ -28,7 +28,15 @@ h1 {
 }
 
 button {
-    padding: 1% 1%;
+    padding: 2% 2%;
+    color: whitesmoke;
+    background-color: var(--coal);
+    border: whitesmoke;
+    cursor: pointer;
+}
+
+#scores-button {
+    padding: 4px;
     color: whitesmoke;
     background-color: var(--coal);
     border: whitesmoke;
@@ -51,4 +59,10 @@ main {
     flex-direction: row;
     padding: 7px;
     border: 3px solid black;
+}
+
+#results-header {
+    font-size: x-large;
+    text-decoration: underline;
+    padding-bottom: 6px;
 }

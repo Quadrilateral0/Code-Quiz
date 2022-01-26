@@ -43,7 +43,7 @@ startButton.addEventListener("click", function () {
     if (count === 0){
         clearInterval(interval);
         alert("Game Over!");
-    }
+    } 
  }, 1000);
 
     //Starting question prompts on button press
@@ -53,26 +53,32 @@ startButton.addEventListener("click", function () {
 //Function to display quiz
 function quizBuilder() {
     
-    //Displays questions and answers from array on the page one at a time
-    ++quizIndex;
+//Displays questions and answers from array on the page one at a time
+ ++quizIndex;
+    //document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
+    //var div = document.createElement("div");
+    //    document.getElementById("quiz-answers").appendChild(div);
+    //var answers = document.innerHTML("<YOUR_CONTENT>");
+    //    div.appendChild(answers);
+    //document.getElementById("quiz-answers").innerHTML = quizContent[quizIndex].answers.forEach 
+    //    (element => "<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + element + "</label><br><br>");
 
     for (var i=0; i<quizContent[quizIndex].question.length; i++) {
-        document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
-        document.getElementById("quiz-answers").innerHTML = quizContent[quizIndex].answers.forEach (element => "<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + element + "</label><br><br>")    
+         document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
+         document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers[i] + "</label><br><br>");   
     }; 
             
     //If more questions in the array remain, provide a button to go to the next question
     if (quizIndex < (quizContent.length - 1)) {
         nButton();
-    }
-                
-    //Otherise, provide a finish button to score the quiz
-        else {
-            fButton();
-        };    
+    }    
+    //Otherise, provide a finish button to submit the final score
+    else {
+        fButton();
+ };
 };
 
-//Creates a button to go to next question if more questions in the array remain
+//Creates a button to go to next question
 function nButton() {
     var nextButton = document.createElement("input");
     nextButton.type = "button";
@@ -81,13 +87,22 @@ function nButton() {
     document.getElementById("quiz-answers").appendChild(nextButton);
 };
 
-//Creates a finish button to submit the final score
+//Creates a button to submit the final score
 function fButton() {
-    var finishButton = document.createElement("submit");
+    var finishButton = document.createElement("input");
     finishButton.type = "button";
     finishButton.value = "Finish";
     finishButton.addEventListener("click", finishBuilder);
     document.getElementById("quiz-answers").appendChild(finishButton);
+};
+
+//Function to store time in local storage upon clicking the finish button
+function finishBuilder() {
+    //Stop the timer
+
+    //Save the number to local storage
+    var score = localStorage.getItem("score");
+    count.textContent = score;
 };
 
 //Creates a reset button to refresh the quiz and start over
@@ -97,15 +112,12 @@ function rButton() {
 }
 resetButton.addEventListener("click", rButton, false);
 
-
-//Function to score current quiz
-function finishBuilder() {
-
-};
-
 //Function to display the final scores
 function scoreBuilder() {
-    
+    var user = localStorage.getItem("initials");
+    var result = localStorage.getItem("score");
+    localStorage.setItem("initials", user);
+    localStorage.setItem("score", result);
 };
 
 //Creates a button to access final scores

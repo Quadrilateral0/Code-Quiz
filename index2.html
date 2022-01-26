@@ -10,20 +10,24 @@
   
   <body>
     <header>
-        <h1>Coding Quiz</h1> 
+        <h1>Top Scores</h1> 
         <div class="headerbuttons">
             <div>
-                <button onclick="window.location.href='index2.html';">
-                    See Scores
+                <button onclick="window.location.href='index.html';">
+                    Return to Quiz
                 </button>
             </div>
             <div>  
-                <h2 class="count-header">
-                    <p><span id="count-text">60</span> SECONDS REMAINING </p>
-                </h2>
+                <h2 id=results-header>INITIALS</h2>
+                <h2 class="initials">ABC</h2>
+            </div>
+            <div>  
+                <h2 id=results-header>SCORE</h2>
+                <h2 class="top-scores">12345</h2>
             </div>
             <div>
-                <button id="reset-button">Start Over</button>
+                <form action="https://github.com/Quadrilateral0" method="get" target="_blank">
+                <button type="submit">Visit My Git</button>
             </div>
         </div>
     </header>
@@ -32,7 +36,6 @@
         <section id="quiz">
             <div>
                 <div id="quiz-container">
-                    <button id="start-button">Start</button>
                 </div>
                 <div id="quiz-answers"></div> 
             </div>   
