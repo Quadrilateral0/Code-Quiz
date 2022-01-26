@@ -55,6 +55,11 @@ function quizBuilder() {
     
 //Displays questions and answers from array on the page one at a time
  ++quizIndex;
+    //document.getElementById("quiz").innerHTML = '';
+    //    document.innerHTML(quizContent[quizIndex].question + "<br />");
+    //        for (var i=0; i < quizContent[quizIndex].answers.length; i++) {
+    //        document.innerHTML("<input type=radio id=radio name=answers>" + quizContent[quizIndex].answers[i] + "<br />");
+
     //document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
     //var div = document.createElement("div");
     //    document.getElementById("quiz-answers").appendChild(div);
@@ -65,8 +70,16 @@ function quizBuilder() {
 
     for (var i=0; i<quizContent[quizIndex].question.length; i++) {
          document.getElementById("quiz-container").innerHTML = quizContent[quizIndex].question + "<br><br>";
-         document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers[i] + "</label><br><br>");   
+         document.getElementById("quiz-answers").innerHTML = ("<input type='radio' id='quiz-answers' name='answers'><label for='quiz-answers'>" + quizContent[quizIndex].answers + "</label><br><br>");   
     }; 
+
+    //var s = document.getElementById("quiz-answers");
+    //for(var i=0; i<quizContent[quizIndex].answers; i++) {
+    //    var option = document.createElement('option');
+    //    option.text = quizContent[quizIndex].answers[i];
+    //    option.value = quizContent[quizIndex].answers[i];
+    //    s.options[s.options.length] = option;
+    //}
             
     //If more questions in the array remain, provide a button to go to the next question
     if (quizIndex < (quizContent.length - 1)) {
