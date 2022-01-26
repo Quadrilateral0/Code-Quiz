@@ -43,6 +43,10 @@ startButton.addEventListener("click", function () {
     //Interval function ends when count equals zero
     if (count === 0){
         clearInterval(interval);
+
+        //And score of 0 is saved to local storage
+        localStorage.setItem("score", count);
+        countText.textContent = count;
         alert("Game Over!");
     }
 }, 1000);
@@ -96,8 +100,27 @@ function finishBuilder() {
     clearInterval(interval);
 
     //Save the number to local storage
-    var score = localStorage.getItem("score");
     localStorage.setItem("score", count);
+    countText.textContent = count;
+    
+    //Display score and ask to save
+    document.getElementById("quiz-answers").innerHTML = " ";
+    localStorage.getItem(count);
+    if (count !== null) {
+        document.getElementById("quiz-answers").innerHTML = 
+        ("You scored a " + count + "!<br><br>");
+    }
+
+    document.getElementById("quiz-container").innerHTML = "Would you like to save your score?<br><br>";
+    
+    sButton();
+    function sButton() {
+        var saveButton = document.createElement("input");
+        saveButton.type = "button";
+        saveButton.value = "Save";
+        saveButton.addEventListener("click", scoreBuilder);
+        document.getElementById("quiz-answers").appendChild(saveButton);
+    };
 };
 
 //Creates a reset button to refresh the quiz and start over
@@ -107,12 +130,12 @@ function rButton() {
 }
 resetButton.addEventListener("click", rButton, false);
 
-//Function to display the final scores
+//Function to display the final scores and initials
 function scoreBuilder() {
-    var user = localStorage.getItem("initials");
-    var result = localStorage.getItem("score");
-    localStorage.setItem("initials", user);
-    localStorage.setItem("score", result);
+//    var user = localStorage.getItem("initials");
+//    var result = localStorage.getItem("score");
+//    localStorage.setItem("initials", user);
+//    localStorage.setItem("score", result);
 };
 
 //Creates a button to access final scores
@@ -120,4 +143,3 @@ var scoresButton = document.getElementById("scores-button");
 scoresButton.addEventListener("click", scoreBuilder);
 
 //Creates a form to enter player initials
-
