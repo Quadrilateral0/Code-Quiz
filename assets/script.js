@@ -48,6 +48,9 @@ startButton.addEventListener("click", function () {
         localStorage.setItem("score", count);
         countText.textContent = count;
         alert("Game Over!");
+        if (window.alert = true) {
+            saveFunction ();
+        }
     }
 }, 1000);
 
@@ -109,7 +112,12 @@ function finishBuilder() {
     //Save the number to local storage
     localStorage.setItem("score", count);
     countText.textContent = count;
-    
+
+    saveFunction ();
+
+};
+
+function saveFunction () {
     //Display score and ask to save
     document.getElementById("quiz-answers").innerHTML = " ";
     localStorage.getItem(count);
@@ -119,7 +127,7 @@ function finishBuilder() {
     }
 
     document.getElementById("quiz-container").innerHTML = "Would you like to save your score?<br><br>";
-    
+
     //Creates button to initiate form requesting initials
     sButton();
     function sButton() {
