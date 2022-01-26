@@ -1,6 +1,6 @@
 # Code Quiz
 ## Description
-For this project, I created a quiz application. This application demonstrates my skills with javascript.
+For this project, I created a quiz application. This application demonstrates my skills with JavaScript.
 
 ## Table of Contents
 - [Usage](#usage)
@@ -12,7 +12,8 @@ For this project, I created a quiz application. This application demonstrates my
 ## Usage
 Visit my [Code Quiz here](https://quadrilateral0.github.io/Code-Quiz/). The following image shows the web application's appearance and functionality:
 
-![Screenshot of Completed Website](assets/images/code-quiz-screenshot.png)
+![Screenshots of Completed Website](assets\images\Screenshot-A.png)
+![Screenshots of Completed Website](assets\images\Screenshot-B.png)
 
 ## User Story
 
