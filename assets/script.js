@@ -32,10 +32,11 @@ var quizIndex = -1;
 
 //Creating the start button
 var startButton = document.getElementById("start-button");
+var interval;
 startButton.addEventListener("click", function () {
 
     //Starting countdown timer on button press
-    var interval = setInterval(function() {
+    interval = setInterval(function() {
         count-=1;
         countText.textContent = count;
   
@@ -43,8 +44,6 @@ startButton.addEventListener("click", function () {
     if (count === 0){
         clearInterval(interval);
         alert("Game Over!");
-    } else if ("click", fButton){
-        clearInterval(interval);
     }
 }, 1000);
 
@@ -94,10 +93,11 @@ function fButton() {
 //Function to store time in local storage upon clicking the finish button
 function finishBuilder() {
     //Stop the timer
+    clearInterval(interval);
 
     //Save the number to local storage
     var score = localStorage.getItem("score");
-    count.textContent = score;
+    localStorage.setItem("score", count);
 };
 
 //Creates a reset button to refresh the quiz and start over
@@ -119,4 +119,5 @@ function scoreBuilder() {
 var scoresButton = document.getElementById("scores-button");
 scoresButton.addEventListener("click", scoreBuilder);
 
+//Creates a form to enter player initials
 
