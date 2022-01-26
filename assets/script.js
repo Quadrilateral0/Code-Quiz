@@ -43,8 +43,10 @@ startButton.addEventListener("click", function () {
     if (count === 0){
         clearInterval(interval);
         alert("Game Over!");
-    } 
- }, 1000);
+    } else if ("click", fButton){
+        clearInterval(interval);
+    }
+}, 1000);
 
     //Starting question prompts on button press
     quizBuilder();
@@ -68,7 +70,7 @@ function quizBuilder() {
     //Otherise, provide a finish button to submit the final score
     else {
         fButton();
- };
+    };
 };
 
 //Creates a button to go to next question
